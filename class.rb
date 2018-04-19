@@ -1,3 +1,4 @@
+
 class Boardcase
   attr_accessor :value
 
@@ -34,7 +35,6 @@ class Board
   end
 
   def check_plateau
-
     3.times do | nb | 
       unless  plateau[nb][:"0"].value == ""
         if  plateau[nb][:"0"].value ==  plateau[nb][:"1"].value && plateau[nb][:"0"].value == plateau[nb][:"2"].value 
@@ -62,7 +62,7 @@ class Board
 end
 
 class Game
-  attr_accessor :player, :board, :turn, :play
+  attr_accessor :player, :board, :play
 
 
   def initialize
@@ -70,43 +70,75 @@ class Game
     @player[0] = Player.new("O")
     @player[1] = Player.new("X")
     @board = Board.new
-    @turn = 0
     @play = 0
   end
 
   def next_turn
+    @play == 0 ? @play +=1 : @play -=1
+    joueur = player[@play]
+    tu_vas_jouer_oui?(joueur)
+  end
+
+  def tu_vas_jouer_oui?(joueur)
+    while true
     line = 0
     column = 0
-    while line < 1 || line > 3
-      print "choisis la ligne où tu veux jouer\n"
-      line = gets.chomps.to_i
+      while line < 1 || line > 3
+        print "#{joueur.name} choisis la ligne où tu veux jouer\n"
+        line = gets.chomp.to_i
+      end
+      line -=1
+      while column < 1 || column > 3
+        print "#{joueur.name} choisis la colonne où tu veux jouer\n"
+        column = gets.chomp.to_i
+      end
+      column -=1
+      if board.plateau[line][:"#{column}"].value == ""
+        board.plateau[line][:"#{column}"].value = joueur.symbol
+        break
+      else
+        puts "HaHAHAGHAHAAHAHAHAAhahahahahahahaHAHHAAHHAhahAHAh"
+        puts "Tres marrant ça"
+        puts "La case etait déjà prise, t'es repartis pour un tour couillon\n\n"
+      end
     end
-    line -=1
-    while column < 1 || column > 3
-      print "choisis la colonne où tu veux jouer\n"
-      column = gets.chomps.to_i
-    end
-    column -=1
-   @play == 0 ? @play +=1 : @play -=1
-   @plateau.check_plateau != "" ? "" : "" 
-     @turn += 1
   end
 
-  def c_gagne(symbol)
+  def c_fini
+    victoire = board.check_plateau
+    if victoire != ""
+      board.puts_plateau
+      puts "/!\-------------------/!\ "
+      puts "#{player[play].name} à gagné ! Bravo a lui, il a vaincu l'autre gros naze"
+      puts "/!\-------------------/!\ "
+      true
+    else
+      false
+    end
   end
 end
-
 
 class Player
   attr_accessor :name, :symbol
+  @@all = 0
 
   def initialize(symbol)
+    if @@all == 0
     print "\nrentre ici ton nom : "
+    else
+      print "\nBravo, ton 1er adversaire a rentré son nom"
+      print "\n\nA l'autre joueurs de le faire : "
+    end
     @name = gets.chomp.to_s
     @symbol = symbol
+    @@all +=1
+
   end
 end
 
-coucou = Game.new
-coucou.board.puts_plateau
+jeu = Game.new
+until jeu.c_fini
+  jeu.board.puts_plateau
+  jeu.next_turn
+end
 
