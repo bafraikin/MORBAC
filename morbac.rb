@@ -120,7 +120,7 @@ class Game
    if board.check_plateau != "" #la fonction renvoit la valeur 
       board.puts_plateau
       puts "/!\\-------------------/!\\" #quand je suis fatigué, je suis d'humeur taquine
-      puts "#{player[play].name} à gagné ! Bravo a lui, il a vaincu l'autre gros naze"  #grace à @play je sais qui etait en train
+      puts "#{player[play].name} a gagné ! Bravo a lui, il a vaincu l'autre gros naze"  #grace à @play je sais qui etait en train
       puts "/!\\-------------------/!\\"                                   #de jouer et donc qui a gagné
       true # va casser notre boucle 'until'
     else
