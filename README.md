@@ -12,8 +12,9 @@ Et tu peux voir le resultat si tu lances `ruby class.rb`!!.
 INCROYABLE!
 Alors du coup je te demande de l'indulgence, la coherence du code est
 surement à revoir. La propreté du code est surement à revoir.
-Le codeur est aussi surement à revoir.
-Enfin pas apres cette journée, je faisais surement peur à voir. Bouh!.
+
+Le codeur etait aussi surement à revoir aussi.
+Enfin pas apres cette journée, je faisais surement peur à voir. \nBouh!.
 
 Je vais commenter le code pour toi cher correcteur.
 A toi de voir si je suis plus clair en Français qu'en Ruby, le choix est libre.
