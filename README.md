@@ -14,7 +14,8 @@ Alors du coup je te demande de l'indulgence, la coherence du code est
 surement à revoir. La propreté du code est surement à revoir.
 
 Le codeur etait aussi surement à revoir aussi.
-Enfin pas apres cette journée, je faisais surement peur à voir. \nBouh!.
+Enfin pas apres cette journée, je faisais surement peur à voir. 
+<h1>Bouh!.</h1>
 
 Je vais commenter le code pour toi cher correcteur.
 A toi de voir si je suis plus clair en Français qu'en Ruby, le choix est libre.
