@@ -23,7 +23,7 @@ class Board
   end
 
   #pour la fonction suivante le plus important est la variable 'char' que tu vas trouver
-  #un peu perdu au debut de la 2eme boucle
+  #un peu perdu au debut de la 2eme boucle, on l'initie à chaque fois
   #l'objectif est que pour chaque case on verifie si la case est vide ""
   #Si oui char reste inchangé
   #Si non on met la valeur de la case dans char. ça permet de faire un seul puts general
@@ -33,14 +33,17 @@ class Board
   def puts_plateau
     3.times do | y |
       print "\n"
+      (y == 0 ) ? (print "") : (print "\t\s\s")
       unless y == 0 then print "---+---+---\n" end #affiche les lignes intermediaire
       3.times do | x |                            #sauf la 1ere ligne, ça fait + souag!
         char = "\s" 
+         (x == 0) ? (print "\t#{y+1}\s") : (print "") # si on est au 1er char on met le numero de la ligne et on centre la grille
         unless @plateau[y][:"#{x}"].value == "" then char = @plateau[y][:"#{x}"].value end
         print "\s#{char}\s" 
         if x < 2 then print "|" end 
       end
     end
+    print "\n\n\t\s\s\s1\s\s\s2\s\s\s3" # ça s'est de l'affichage bien degeu
     print "\n\n"
   end
 
@@ -154,8 +157,8 @@ class Player
   end
 end
 
-loop do
-  jeu = Game.new  #on initié le tableau et les joueurs
+loop do #loop en plus pour plusieur partie
+  jeu = Game.new  #on initie le tableau et les joueurs
   until jeu.c_fini  #la boucle verifie la condition et en meme temps l'applique! Une ligne de sauvé !! Pfiou
     jeu.board.puts_plateau  # affiche le plateau et son etat
     jeu.next_turn   
