@@ -23,7 +23,7 @@ A toi de voir si je suis plus clair en Français qu'en Ruby, le choix est libre.
 Aller bonne nuit!
 
 
-![alt text](http://beemage.b.e.pic.centerblog.net/944afae1.gif)
+![alt text](https://beemage.b.e.pic.centerblog.net/944afae1.gif)
 
 
 
